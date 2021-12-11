@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.databinding.FragmentThirdScreenBinding
 
@@ -18,6 +19,10 @@ class ThirdScreen : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentThirdScreenBinding.inflate(inflater, container, false)
+
+        binding.startButton.setOnClickListener {
+            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
+        }
 
         return binding.root
     }
