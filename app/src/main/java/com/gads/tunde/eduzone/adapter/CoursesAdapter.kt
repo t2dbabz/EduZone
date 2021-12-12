@@ -10,7 +10,7 @@ import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.databinding.CourseListItemBinding
 import com.gads.tunde.eduzone.model.Course
 
-class CoursesAdapter : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(DiffCallback) {
+class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(DiffCallback) {
 
     class CourseViewHolder(private var binding: CourseListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -42,5 +42,17 @@ class CoursesAdapter : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(Diff
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         val courseItem = getItem(position)
         holder.bind(courseItem)
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                it(courseItem)
+            }
+        }
     }
+
+    private var onItemClickListener: ((Course) -> Unit)? = null
+    fun setOnItemClickListener (listener: (Course) -> Unit) {
+        onItemClickListener = listener
+    }
+
+
 }

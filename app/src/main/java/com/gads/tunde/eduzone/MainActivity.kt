@@ -2,10 +2,13 @@ package com.gads.tunde.eduzone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.gads.tunde.eduzone.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +27,26 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
 
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        val topLevelDestinations = setOf(R.id.homeFragment, R.id.searchFragment)
+
+        appBarConfiguration = AppBarConfiguration(topLevelDestinations)
+
+        val bottomViewNavigation = binding.bottomViewNavigation
+
+        bottomViewNavigation.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.viewPagerFragment) {
+                bottomViewNavigation.visibility = View.GONE
+            } else {
+                bottomViewNavigation.visibility = View.VISIBLE
+            }
+        }
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.gads.tunde.eduzone.model
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class Course(
     @Json(name = "id")
@@ -33,4 +34,4 @@ data class Course(
     val price_detail: PriceDetail? = null,
 
     val visible_instructors: List<VisibleInstructor>
-)
+) : Serializable

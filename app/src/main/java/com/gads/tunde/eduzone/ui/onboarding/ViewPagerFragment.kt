@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.databinding.FragmentViewPagerBinding
 import com.gads.tunde.eduzone.ui.onboarding.screen.FirstScreen
@@ -22,7 +23,10 @@ class ViewPagerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        (activity as AppCompatActivity).supportActionBar?.hide()
         binding = FragmentViewPagerBinding.inflate(inflater, container, false)
+
+
 
         val fragmentList = arrayListOf(FirstScreen(), SecondScreen(), ThirdScreen())
 

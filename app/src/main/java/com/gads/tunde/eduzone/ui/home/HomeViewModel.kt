@@ -29,18 +29,18 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun getCourses() {
-         try {
-             viewModelScope.launch {
-                 val courseList = UdemyApi.retrofitService.getCourses().results
-                 if (courseList.isNotEmpty()) {
-                     _courseList.value = courseList
-                 }
-             }
-         } catch (e: Exception) {
+        viewModelScope.launch {
+            try {
+                val courseList = UdemyApi.retrofitService.getCourses().results
+                if (courseList.isNotEmpty()) {
+                    _courseList.value = courseList
+                }
+            } catch (e: Exception) {
+                _courseList.value = ArrayList()
 
-             _courseList.value = ArrayList()
+            }
+        }
 
-         }
 
 
     }
