@@ -16,6 +16,13 @@ import com.gads.tunde.eduzone.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
+    private val viewModel : HomeViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onViewCreated()"
+        }
+        ViewModelProvider(this, HomeViewModelFactory(activity.application))[HomeViewModel::class.java]
+    }
+
 
     private lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
@@ -23,7 +30,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        (activity as AppCompatActivity).supportActionBar?.show()
+//        (activity as AppCompatActivity).supportActionBar?.show()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,18 +38,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel : HomeViewModel by lazy {
-            ViewModelProvider(this)[HomeViewModel::class.java]
-        }
-
         val adapter = CoursesAdapter()
-
-        viewModel.courseList.observe(viewLifecycleOwner, { courseList ->
-            println(" Course list ${courseList.size}")
-            adapter.submitList(courseList)
-        })
-
         binding.recyclerView.adapter = adapter
+
+        viewModel.coursesList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
 
         adapter.setOnItemClickListener {  selectedCourse ->
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(selectedCourse))

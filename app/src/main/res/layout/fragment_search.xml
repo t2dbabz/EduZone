@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/course_list_item"
-        tools:itemCount="20"/>
+        tools:itemCount="20"
+        tools:listitem="@layout/course_list_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

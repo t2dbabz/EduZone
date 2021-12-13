@@ -6,18 +6,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.databinding.CourseListItemBinding
 import com.gads.tunde.eduzone.model.Course
+import com.gads.tunde.eduzone.network.NetworkCourse
 
 class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(DiffCallback) {
 
     class CourseViewHolder(private var binding: CourseListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(courseItem: Course) {
-            binding.courseTitle.text = courseItem.courseTitle
-            binding.courseDescription.text = courseItem.courseDescription
-            binding.courseImage.load(courseItem.courseImageLarge)
+            binding.courseTitle.text = courseItem.title
+            binding.courseDescription.text = courseItem.description
+            binding.courseImage.load(courseItem.image)
         }
 
 
@@ -29,7 +29,7 @@ class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(Di
         }
 
         override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
-            return oldItem.courseId == newItem.courseId
+            return oldItem.id == newItem.id
         }
     }
 
@@ -53,6 +53,8 @@ class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(Di
     fun setOnItemClickListener (listener: (Course) -> Unit) {
         onItemClickListener = listener
     }
+
+
 
 
 }

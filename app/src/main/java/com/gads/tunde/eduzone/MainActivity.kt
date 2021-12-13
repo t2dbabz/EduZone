@@ -27,13 +27,16 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
 
-        val topLevelDestinations = setOf(R.id.homeFragment, R.id.searchFragment)
+
+
+        val topLevelDestinations = setOf(R.id.homeFragment)
 
         appBarConfiguration = AppBarConfiguration(topLevelDestinations)
 
         val bottomViewNavigation = binding.bottomViewNavigation
 
         bottomViewNavigation.setupWithNavController(navController)
+
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -43,13 +46,6 @@ class MainActivity : AppCompatActivity() {
                 bottomViewNavigation.visibility = View.VISIBLE
             }
         }
-
-
-
-
-
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

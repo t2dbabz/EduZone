@@ -24,16 +24,17 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val selectedCourse = DetailFragmentArgs.fromBundle(requireArguments()).selectedCourse
 
-        binding.courseDetailTitle.text = selectedCourse.courseTitle
-        binding.courseDetailDescription.text = selectedCourse.courseDescription
-        binding.courseDetailImage.load(selectedCourse.courseImageLarge)
-        binding.courseDetailPrice.text = getString(R.string.course_price, selectedCourse.coursePrice)
-        binding.courseDetailInstructor.text = getString(R.string.course_creator, selectedCourse.visible_instructors[0].title)
-        binding.instructorProfileImageView.load(selectedCourse.visible_instructors[0].image_100x100)
-        binding.instructorNameTextView.text = selectedCourse.visible_instructors[0].display_name
-        binding.instructorTitle.text = selectedCourse.visible_instructors[0].job_title
+        binding.courseDetailTitle.text = selectedCourse.title
+        binding.courseDetailDescription.text = selectedCourse.description
+        binding.courseDetailImage.load(selectedCourse.image)
+        binding.courseDetailPrice.text = getString(R.string.course_price, selectedCourse.price)
+        binding.courseDetailInstructor.text = getString(R.string.course_creator, selectedCourse.instructor)
+        binding.instructorProfileImageView.load(selectedCourse. instructorImage)
+        binding.instructorNameTextView.text = selectedCourse.instructor
+        binding.instructorTitle.text = selectedCourse.instructorTitle
 
     }
 
