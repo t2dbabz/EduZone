@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.databinding.CourseListItemBinding
 import com.gads.tunde.eduzone.model.Course
 import com.gads.tunde.eduzone.network.NetworkCourse
@@ -17,6 +18,7 @@ class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(Di
         fun bind(courseItem: Course) {
             binding.courseTitle.text = courseItem.title
             binding.courseDescription.text = courseItem.description
+            binding.coursePrice.text = itemView.context.getString(R.string.course_price, courseItem.price)
             binding.courseImage.load(courseItem.image)
         }
 

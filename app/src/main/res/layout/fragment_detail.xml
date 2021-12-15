@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/course_detail_image"
@@ -29,6 +33,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_image"
@@ -52,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/course_detail_description"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_description"
@@ -61,16 +67,17 @@
         android:id="@+id/course_detail_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/course_detail_instructor"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_instructor"
         tools:text="Price: Free" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start_course_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -82,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/course_detail_price" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_bookmark_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -92,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/start_course_button" />
 
     <TextView
         android:id="@+id/instructor_label"
@@ -103,7 +110,7 @@
         android:text="@string/instructor"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/add_bookmark_button" />
 
     <TextView
         android:id="@+id/instructor_name_textView"
@@ -111,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/instructor_profile_imageView"
@@ -122,10 +130,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/instructor_name_textView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/instructor_name_textView"
         app:layout_constraintTop_toBottomOf="@+id/instructor_name_textView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
         tools:text="Developer and Lead Instructor" />
 
     <ImageView
@@ -137,3 +148,4 @@
         app:layout_constraintTop_toBottomOf="@+id/instructor_label"
         tools:src="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
