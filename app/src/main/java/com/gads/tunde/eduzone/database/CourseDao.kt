@@ -1,10 +1,7 @@
 package com.gads.tunde.eduzone.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface CourseDao {
@@ -13,4 +10,9 @@ interface CourseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg courses: DatabaseCourse)
+
+    @Update
+    suspend fun updateCourse(course: DatabaseCourse)
+
+
 }

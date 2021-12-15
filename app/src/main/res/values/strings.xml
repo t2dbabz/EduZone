@@ -12,5 +12,6 @@
     <string name="search">Search</string>
     <string name="course_price">Price: %1$s</string>
     <string name="course_creator">Created by %1$s</string>
+    <string name="bookmarked" >Bookmarked</string>
     <string name="home">Home</string>
 </resources>
