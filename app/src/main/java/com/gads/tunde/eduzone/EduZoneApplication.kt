@@ -1,4 +1,4 @@
-package com.gads.tunde.eduzone.ui
+package com.gads.tunde.eduzone
 
 import android.app.Application
 

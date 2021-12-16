@@ -14,4 +14,11 @@
         android:icon="@drawable/ic_search"
         android:enabled="true" />
 
+    <item
+        android:id="@+id/bookmarkFragment"
+        android:title="@string/bookmark"
+        android:icon="@drawable/ic_bookmark_24"
+        android:enabled="true"
+        />
+
 </menu>

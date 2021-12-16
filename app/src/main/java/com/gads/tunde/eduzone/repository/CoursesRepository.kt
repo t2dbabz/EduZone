@@ -18,6 +18,10 @@ class CoursesRepository (private val database: CoursesDatabase){
         it.asDomainModel()
     }
 
+    val bookmarkedCourses : LiveData<List<Course>> = Transformations.map(database.courseDao.getBookmarkedCourses()) {
+        it.asDomainModel()
+    }
+
 
     suspend fun refreshCourses() {
         withContext(Dispatchers.IO){
@@ -35,5 +39,7 @@ class CoursesRepository (private val database: CoursesDatabase){
     suspend fun updateCourse(course: DatabaseCourse){
         database.courseDao.updateCourse(course)
     }
+
+
 
 }

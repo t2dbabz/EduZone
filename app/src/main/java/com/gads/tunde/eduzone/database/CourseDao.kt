@@ -14,5 +14,8 @@ interface CourseDao {
     @Update
     suspend fun updateCourse(course: DatabaseCourse)
 
+    @Query(" SELECT * FROM courses_table WHERE isBookmarked = 1 ")
+    fun getBookmarkedCourses() : LiveData<List<DatabaseCourse>>
+
 
 }
