@@ -36,6 +36,9 @@ class CoursesRepository (private val database: CoursesDatabase){
         }
     }
 
+    suspend fun searchCourse(searchTerm: String)  =
+        UdemyApi.retrofitService.searchCourses(searchTerm)
+
     suspend fun updateCourse(course: DatabaseCourse){
         database.courseDao.updateCourse(course)
     }

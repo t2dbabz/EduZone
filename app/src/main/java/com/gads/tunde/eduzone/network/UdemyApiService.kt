@@ -8,8 +8,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
-    private const val BASE_URL = "https://www.udemy.com/api-2.0/"
+private const val BASE_URL = "https://www.udemy.com/api-2.0/"
 
     private val client = OkHttpClient.Builder().apply {
         addInterceptor(MyInterceptor())
@@ -28,6 +29,13 @@ import retrofit2.http.GET
     interface UdemyApiService {
         @GET("courses")
         suspend fun getCourses(): UdemyApiResponse
+
+        @GET("courses")
+        suspend fun searchCourses(
+            @Query("search") searchTerm: String,
+            @Query("ordering") order: String = "highest-rated",
+            @Query("page_size") pageSize : Int = 20,
+        ): UdemyApiResponse
     }
 
     object UdemyApi {
