@@ -1,20 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categories_label"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/introduction_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/intro_text"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Your Learning Journey Starts now" />
+
+    <TextView
+        android:id="@+id/intro_caption_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/intro_caption"
+        app:layout_constraintEnd_toEndOf="@+id/introduction_text"
+        app:layout_constraintStart_toStartOf="@+id/introduction_text"
+        app:layout_constraintTop_toBottomOf="@+id/introduction_text"
+        tools:text="Skillls for you present (and future)" />
+
+    <TextView
+        android:id="@+id/featured_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/featured"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_caption_text" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/course_list_item"
-        tools:itemCount="20"/>
+        app:layout_constraintTop_toBottomOf="@+id/featured_label_text"
+        tools:itemCount="4"
+        tools:listitem="@layout/course_card_item" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/categories"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <HorizontalScrollView
+        android:id="@+id/chips"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/courses_categories_chipGroupOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="false"
+                app:singleSelection="true" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/courses_categories_chipGroupTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="false"
+                app:singleSelection="true" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/top_courses_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/top_courses"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chips" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/top_courses_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_courses_label_text"
+        tools:itemCount="4"
+        tools:listitem="@layout/course_card_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -15,4 +15,9 @@
     <string name="bookmarked">Bookmarked</string>
     <string name="bookmark">Bookmark</string>
     <string name="home">Home</string>
+    <string name="intro_text">Your Learning Journey Starts now</string>
+    <string name="intro_caption">Skills for you present (and future)</string>
+    <string name="featured">Featured</string>
+    <string name="categories">Categories</string>
+    <string name="top_courses">Top Courses</string>
 </resources>
