@@ -39,12 +39,19 @@ class BookmarkFragment : Fragment() {
         binding.bookmarkRecyclerView.adapter = adapter
 
         viewModel.bookmarkedCourses.observe(viewLifecycleOwner, Observer { bookmarkedCoursesList ->
-            adapter.submitList(bookmarkedCoursesList)
+
+            if (bookmarkedCoursesList.isNotEmpty()) {
+                adapter.submitList(bookmarkedCoursesList)
+            } else {
+                binding.bookmarkRecyclerView.visibility = View.INVISIBLE
+                binding.emptyStateImage.visibility = View.VISIBLE
+                binding.emptyStateText.visibility = View.VISIBLE
+            }
+
         })
 
         adapter.setOnItemClickListener { bookmarkedCourse ->
             findNavController().navigate(BookmarkFragmentDirections.actionBookmarkFragmentToDetailFragment(bookmarkedCourse))
-
         }
 
     }
