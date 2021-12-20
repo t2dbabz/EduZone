@@ -1,7 +1,10 @@
 package com.gads.tunde.eduzone.ui.search
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,6 +14,7 @@ import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.adapter.CoursesAdapter
 import com.gads.tunde.eduzone.databinding.FragmentSearchBinding
 import com.gads.tunde.eduzone.model.Course
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchFragment : Fragment() {
 
@@ -25,7 +29,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
@@ -39,7 +43,8 @@ class SearchFragment : Fragment() {
 
         binding.searchRecyclerView.adapter = adapter
 
-        viewModel.searchResultList.observe(viewLifecycleOwner, Observer { searchResult ->
+        viewModel.searchResultList.observe(viewLifecycleOwner, { searchResult ->
+
             if (searchResult != null) {
                 adapter.submitList(searchResult)
             }
@@ -67,11 +72,14 @@ class SearchFragment : Fragment() {
                 if (query != null ) {
                     viewModel.searchCourses(query)
                 }
-                searchView.onActionViewCollapsed()
+
+                hideKeyboard()
                 return true
             }
 
             override fun onQueryTextChange(query: String?): Boolean {
+                binding.searchStateImageView.visibility = View.INVISIBLE
+                binding.searchingText.visibility = View.INVISIBLE
                 if (query != null ) {
                     viewModel.searchCourses(query)
                 }
@@ -80,6 +88,20 @@ class SearchFragment : Fragment() {
 
         })
 
+        searchView.setOnQueryTextFocusChangeListener { view, hasFocus ->
+            val bottomNav =  (activity as AppCompatActivity).findViewById<BottomNavigationView>(R.id.bottomView_navigation)
+            if (hasFocus) {
+                bottomNav.visibility = View.GONE
+            } else {
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
+
+    }
+
+    private fun hideKeyboard() {
+        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
 
