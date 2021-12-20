@@ -43,6 +43,12 @@ class CoursesRepository (private val database: CoursesDatabase){
         database.courseDao.updateCourse(course)
     }
 
+    suspend fun insertCourse(course: DatabaseCourse) {
+        database.courseDao.insertCourse(course)
+    }
+
+    suspend fun deleteCourse(course: DatabaseCourse) = database.courseDao.deleteCourse(course)
+
     suspend fun getFeaturedCourses() =UdemyApi.retrofitService.getFeaturedCourses()
 
     suspend fun getTopCourses() = UdemyApi.retrofitService.getTopCourses()

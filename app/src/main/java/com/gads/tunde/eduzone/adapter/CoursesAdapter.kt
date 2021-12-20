@@ -57,6 +57,9 @@ class CoursesAdapter() : ListAdapter<Course, CoursesAdapter.CourseViewHolder>(Di
     }
 
 
+    fun getCourseAt(position: Int): Course {
+        return getItem(position)
+    }
 
 
 }

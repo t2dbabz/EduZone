@@ -17,5 +17,11 @@ interface CourseDao {
     @Query(" SELECT * FROM courses_table WHERE isBookmarked = 1 ")
     fun getBookmarkedCourses() : LiveData<List<DatabaseCourse>>
 
+    @Delete
+    suspend fun deleteCourse(course: DatabaseCourse)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCourse(course: DatabaseCourse)
+
 
 }
