@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -50,6 +53,18 @@
         tools:layout="@layout/fragment_bookmark">
         <action
             android:id="@+id/action_bookmarkFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.gads.tunde.eduzone.ui.categories.CategoriesFragment"
+        tools:layout="@layout/fragment_categories"
+        android:label="Category" >
+        <argument
+            android:name="selectedCategory"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

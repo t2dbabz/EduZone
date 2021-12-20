@@ -20,4 +20,10 @@
     <string name="featured">Featured</string>
     <string name="categories">Categories</string>
     <string name="top_courses">Top Courses</string>
+    <string name="get_started_text">Courses to get you started</string>
+    <string name="bookmark_empty_state_text">Empty in the Bookmark \n\nAdd a course to your bookmark and \nit will show up here.</string>
+    <string name="search_for_course">Search for courses</string>
+    <string name="new_courses">New Courses</string>
+    <string name="featured_courses">Featured courses</string>
+    <string name="popular_courses">Popular courses</string>
 </resources>

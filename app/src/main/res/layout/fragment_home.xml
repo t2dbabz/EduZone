@@ -3,10 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/categories_label"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -54,9 +52,9 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/featured_courses_recyclerView"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -64,8 +62,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/featured_label_text"
-        tools:itemCount="4"
+        tools:itemCount="1"
         tools:listitem="@layout/course_card_item" />
+
+    <ProgressBar
+        android:id="@+id/featured_courses_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/featured_courses_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/featured_courses_recyclerView" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,7 +88,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/featured_courses_recyclerView" />
 
     <HorizontalScrollView
         android:id="@+id/chips"
@@ -101,13 +111,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:singleLine="false"
-                app:singleSelection="true" />
+                app:singleSelection="true" >
+
+            </com.google.android.material.chip.ChipGroup>
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/courses_categories_chipGroupTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:singleLine="false"
-                app:singleSelection="true" />
+                app:singleSelection="true" >
+
+            </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -128,7 +142,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/top_courses_recyclerView"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -136,7 +150,61 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_courses_label_text"
-        tools:itemCount="4"
+        tools:itemCount="1"
         tools:listitem="@layout/course_card_item" />
+
+    <ProgressBar
+        android:id="@+id/top_courses_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/top_courses_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_courses_recyclerView" />
+
+    <TextView
+        android:id="@+id/new_courses_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/new_courses"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_courses_recyclerView" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/new_courses_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_courses_label_text"
+        tools:itemCount="1"
+        tools:listitem="@layout/course_card_item" />
+
+    <ProgressBar
+        android:id="@+id/new_courses_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/new_courses_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/new_courses_recyclerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

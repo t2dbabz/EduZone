@@ -42,6 +42,16 @@ class CourseHorizontalAdapter: ListAdapter<Course, CourseHorizontalAdapter.Cours
     override fun onBindViewHolder(holder: CourseHorizontalViewHolder, position: Int) {
         val courseItem = getItem(position)
         holder.bind(courseItem)
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                it(courseItem)
+            }
+        }
+    }
+
+    private var onItemClickListener: ((Course) -> Unit)? = null
+    fun setOnItemClickListener (listener: (Course) -> Unit) {
+        onItemClickListener = listener
     }
 
 }
