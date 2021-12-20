@@ -49,7 +49,15 @@ class CoursesRepository (private val database: CoursesDatabase){
 
     suspend fun getNewCourses() = UdemyApi.retrofitService.getNewCourses()
 
+    suspend fun getStarterCoursesCategory(category: String) =
+        UdemyApi.retrofitService.getStarterCoursesCategory(category = category)
 
+    suspend fun getFeaturedCoursesCategory(category: String) =
+        UdemyApi.retrofitService.getFeaturedCoursesCategory(category =  category)
+
+
+    suspend fun getPopularCoursesCategory(category: String) =
+        UdemyApi.retrofitService.getPopularCoursesCategory(category = category)
 
 
 }

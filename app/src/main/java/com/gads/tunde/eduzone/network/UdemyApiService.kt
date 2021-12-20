@@ -59,6 +59,28 @@ private const val BASE_URL = "https://www.udemy.com/api-2.0/"
             @Query("instructional_level") level: String = "all",
             @Query("ordering") order: String = "newest"
         ) : UdemyApiResponse
+
+        @GET("courses")
+        suspend fun getStarterCoursesCategory(
+            @Query("page_size") pageSize: Int = 20,
+            @Query("category") category: String,
+            @Query("instructional_level") level: String = "beginner",
+            @Query("ordering") order: String = "relevance"
+        ): UdemyApiResponse
+
+        @GET("courses")
+        suspend fun getFeaturedCoursesCategory(
+            @Query("page_size") pageSize: Int = 20,
+            @Query("category") category: String,
+            @Query("ordering") order: String = "relevance"
+        ): UdemyApiResponse
+
+        @GET("courses")
+        suspend fun getPopularCoursesCategory(
+            @Query("page_size") pageSize: Int = 20,
+            @Query("category") category: String,
+            @Query("ordering") order: String = "most-reviewed"
+        ): UdemyApiResponse
     }
 
     object UdemyApi {
