@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.viewPagerFragment) {
+            if (destination.id == R.id.viewPagerFragment || destination.id == R.id.splashScreenFragment) {
                 bottomViewNavigation.visibility = View.GONE
             } else {
                 bottomViewNavigation.visibility = View.VISIBLE
