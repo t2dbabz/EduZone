@@ -7,6 +7,7 @@
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/drawable/ic_empty_bookmark.xml" value="0.2203125" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/drawable/selected_pager_dot.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/drawable/tab_pager_selector.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/font/poppins.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/category.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/course_card_item.xml" value="0.25" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_second_screen.xml" value="0.22" />
+        <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_splash_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_third_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/layout/fragment_view_pager.xml" value="0.25" />
         <entry key="..\:/Users/tunde/UdacityProjects/EduZone/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
