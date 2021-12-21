@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.gads.tunde.eduzone.R
 import com.gads.tunde.eduzone.adapter.CourseHorizontalAdapter
 import com.gads.tunde.eduzone.databinding.FragmentHomeBinding
@@ -27,15 +28,18 @@ class HomeFragment : Fragment() {
         ViewModelProvider(this, HomeViewModelFactory(activity.application))[HomeViewModel::class.java]
     }
 
+    private lateinit var swipeContainer: SwipeRefreshLayout
+
 
     private lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 //        (activity as AppCompatActivity).supportActionBar?.show()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        swipeContainer = binding.swipeContainer
         return binding.root
     }
 
@@ -46,6 +50,13 @@ class HomeFragment : Fragment() {
         initializeCategories()
         setupTopCourses()
         setupNewCourses()
+
+        swipeContainer.setOnRefreshListener {
+            viewModel.getNewCourses()
+            viewModel.getFeaturedCourses()
+            viewModel.getTopCourses()
+            swipeContainer.isRefreshing = false
+        }
 
 
 

@@ -64,7 +64,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getFeaturedCourses() {
+    fun getFeaturedCourses() {
         viewModelScope.launch {
             try {
                 _featuredCourseStatus.value = NetworkResponseStatus.LOADING
@@ -79,7 +79,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getTopCourses() {
+    fun getTopCourses() {
         viewModelScope.launch {
             try {
                 _topCoursesStatus.value = NetworkResponseStatus.LOADING
@@ -95,7 +95,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getNewCourses() {
+    fun getNewCourses() {
         viewModelScope.launch {
             try {
                 _newCoursesStatus.value = NetworkResponseStatus.LOADING

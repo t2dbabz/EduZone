@@ -84,6 +84,9 @@ dependencies {
 
     implementation("io.coil-kt:coil:1.4.0")
 
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
