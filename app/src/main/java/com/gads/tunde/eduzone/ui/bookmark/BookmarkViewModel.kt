@@ -13,8 +13,6 @@ class BookmarkViewModel(application: Application): AndroidViewModel(application)
     private val coursesRepository = CoursesRepository(databaseCourse)
 
     val bookmarkedCourses = coursesRepository.bookmarkedCourses
-
-
     fun deleteCourse(course: DatabaseCourse) {
         viewModelScope.launch {
             coursesRepository.deleteCourse(course)

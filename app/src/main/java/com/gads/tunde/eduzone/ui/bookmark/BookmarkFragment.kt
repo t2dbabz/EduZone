@@ -32,7 +32,7 @@ class BookmarkFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentBookmarkBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,7 +44,7 @@ class BookmarkFragment : Fragment() {
 
         binding.bookmarkRecyclerView.adapter = adapter
 
-        viewModel.bookmarkedCourses.observe(viewLifecycleOwner, Observer { bookmarkedCoursesList ->
+        viewModel.bookmarkedCourses.observe(viewLifecycleOwner, { bookmarkedCoursesList ->
 
             if (bookmarkedCoursesList.isNotEmpty()) {
                 adapter.submitList(bookmarkedCoursesList)
@@ -108,8 +108,7 @@ class BookmarkFragment : Fragment() {
                         instructorImage = course.instructorImage,
                         isBookmarked = course.isBookmarked
                     ))
-                    // If you're not using LiveData you might need to tell the adapter
-                    // that an item was inserted: notifyItemInserted(position);
+
                     binding.bookmarkRecyclerView.scrollToPosition(position)
                 }
                 setActionTextColor(Color.YELLOW)

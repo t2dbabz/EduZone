@@ -14,10 +14,11 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
     private val databaseCourse = CoursesDatabase.getInstance(application)
     private val coursesRepository = CoursesRepository(databaseCourse)
 
-    private val _isBookmarked = MutableLiveData<Boolean>()
-    val isBookmarked : LiveData<Boolean>
-    get() = _isBookmarked
-
+    fun insertCourse(course: DatabaseCourse) {
+        viewModelScope.launch {
+            coursesRepository.insertCourse(course)
+        }
+    }
 
     fun updateCourse(course: DatabaseCourse) {
         viewModelScope.launch {
@@ -26,7 +27,4 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun courseBookmarked() {
-        _isBookmarked.value = true
-    }
 }
