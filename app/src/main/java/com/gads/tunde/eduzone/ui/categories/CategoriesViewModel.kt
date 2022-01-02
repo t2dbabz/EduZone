@@ -69,7 +69,6 @@ class CategoriesViewModel(application: Application): AndroidViewModel(applicatio
                 _featuredCategoryStatus.value = NetworkResponseStatus.LOADING
                 val resultList = coursesRepository.getFeaturedCoursesCategory(category).asDomainModel()
                 if (resultList.isNotEmpty()) {
-                    Log.i("FeaturedCourses", resultList.toString())
                     _featuredCategory.value = resultList
                     _featuredCategoryStatus.value = NetworkResponseStatus.DONE
                 }

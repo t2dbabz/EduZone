@@ -30,6 +30,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (activity as AppCompatActivity).supportActionBar?.show()
         // Inflate the layout for this fragment
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
@@ -47,6 +48,8 @@ class SearchFragment : Fragment() {
 
             if (searchResult != null) {
                 adapter.submitList(searchResult)
+                binding.searchStateImageView.visibility = View.INVISIBLE
+                binding.searchingText.visibility = View.INVISIBLE
             }
         })
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -31,6 +32,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (activity as AppCompatActivity).supportActionBar?.show()
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -46,7 +48,7 @@ class DetailFragment : Fragment() {
         binding.courseDetailImage.load(selectedCourse.image)
         binding.courseDetailPrice.text = getString(R.string.course_price, selectedCourse.price)
         binding.courseDetailInstructor.text = getString(R.string.course_creator, selectedCourse.instructor)
-        binding.instructorProfileImageView.load(selectedCourse. instructorImage)
+        binding.instructorProfileImageView.load(selectedCourse.instructorImage)
         binding.instructorNameTextView.text = selectedCourse.instructor
         binding.instructorTitle.text = selectedCourse.instructorTitle
         bookmarkCheck(selectedCourse)
@@ -75,16 +77,18 @@ class DetailFragment : Fragment() {
 
             viewModel.insertCourse(bookmarkedCourse)
 
-            Snackbar.make(requireActivity().findViewById(R.id.scrollView),
+            Snackbar.make(
+                requireActivity().findViewById(R.id.scrollView),
                 "Added to Bookmark",
-                Snackbar.LENGTH_SHORT).show()
+                Snackbar.LENGTH_SHORT
+            ).show()
 
             binding.addBookmarkButton.isEnabled = false
         }
     }
 
     private fun bookmarkCheck(course: Course) {
-        when(course.isBookmarked) {
+        when (course.isBookmarked) {
             true -> {
                 binding.addBookmarkButton.isEnabled = false
                 binding.addBookmarkButton.text = getString(R.string.bookmarked)

@@ -13,10 +13,12 @@
         android:layout_height="250dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/onboarding2"
+        app:layout_constraintBottom_toTopOf="@+id/continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/onboading_text_two" />
 
     <TextView
         android:id="@+id/onboarding_text_2"

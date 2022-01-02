@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
 
@@ -41,9 +41,13 @@ class CategoriesFragment : Fragment() {
 
 
         val category  = CategoriesFragmentArgs.fromBundle(requireArguments()).selectedCategory
+
         viewModel.getStartedCourses(category)
+        setupGetStartedCourses()
         viewModel.getFeaturedCourses(category)
+        setupFeaturedCourses()
         viewModel.getPopularCourses(category)
+        setupPopularCourses()
 
         binding.apply {
             categoriesLabelTextView.text = category
@@ -52,9 +56,6 @@ class CategoriesFragment : Fragment() {
             popularCoursesLabel.text = getString(R.string.popular_courses, category)
         }
 
-        setupGetStartedCourses()
-        setupFeaturedCourses()
-        setupPopularCourses()
 
 
 
@@ -68,7 +69,7 @@ class CategoriesFragment : Fragment() {
         binding.getStartedCoursesRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
 
-        viewModel.getStartedCategory.observe(viewLifecycleOwner, Observer {
+        viewModel.getStartedCategory.observe(viewLifecycleOwner, {
             getStartedAdapter.submitList(it)
         })
 
