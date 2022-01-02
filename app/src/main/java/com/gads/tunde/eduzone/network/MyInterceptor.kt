@@ -1,13 +1,14 @@
 package com.gads.tunde.eduzone.network
 
 import android.util.Base64
+import com.gads.tunde.eduzone.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class MyInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        val CLIENT_ID = "aKfx5HnFnQRiuBETu3NR6BoFql7RJeImtDvxfXFX"
-        val CLIENT_SECRET = "Clg9QARs4Li2YLQD6KyhRpPsLpCSuWnFLOifZi2zbYM41rKU3qZ89IWBKy3NjzLm7UJaOeVt9AUSuylm4VdymwjyzTBdh0hy8UEankB7aGj0JURxgEiBwTLearaIkqoQ"
+        val CLIENT_ID = BuildConfig.CLIENT_ID
+        val CLIENT_SECRET = BuildConfig.CLIENT_SECRET
 
         val authPayload = "$CLIENT_ID:$CLIENT_SECRET"
         val data = authPayload.toByteArray()
